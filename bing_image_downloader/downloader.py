@@ -21,12 +21,12 @@ force_replace=False, timeout=60, filter="",resize=None, verbose=True):
     image_dir = Path(output_dir).joinpath(query).absolute()
 
     if force_replace:
-        if Path.is_dir(image_dir):
+        if os.path.isdir(image_dir):
             shutil.rmtree(image_dir)
 
     # check directory and create if necessary
     try:
-        if not Path.is_dir(image_dir):
+        if not os.path.isdir(image_dir):
             Path.mkdir(image_dir, parents=True)
 
     except Exception as e:
